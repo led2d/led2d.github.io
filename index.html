@@ -43,8 +43,28 @@ animation:fall linear infinite
 
 .hero{position:relative;max-width:500px;margin:20px auto;z-index:1}
 .hero img.main{width:100%;border-radius:20px}
-.bottom-images{display:flex;gap:10px;position:absolute;bottom:-40px;left:20px}
-.bottom-images img{width:80px;height:80px;border-radius:20px;border:3px solid #111}
+
+.bottom-images{
+display:flex;
+gap:10px;
+position:absolute;
+bottom:-40px;
+left:20px
+}
+
+.bottom-images a img{
+width:80px;
+height:80px;
+border-radius:20px;
+border:3px solid #111;
+transition:.3s;
+cursor:pointer
+}
+
+.bottom-images a img:hover{
+transform:scale(1.1);
+filter:brightness(1.2)
+}
 
 .carousel-wrapper{
 width:100%;
@@ -78,6 +98,7 @@ background:linear-gradient(to top, rgba(0,0,0,0.6), transparent)
 }
 
 .carousel-track{display:flex;gap:20px}
+
 .carousel-track img{
 height:400px;
 width:auto;
@@ -99,30 +120,128 @@ box-shadow:
 0 0 80px rgba(255,100,200,0.3)
 }
 
-.gallery{display:flex;gap:15px;padding:20px;overflow-x:auto;z-index:1;position:relative}
-.gallery img{width:300px;height:300px;border-radius:20px;object-fit:cover;cursor:pointer;transition:.3s}
-.gallery img:hover{transform:scale(1.05)}
+.gallery{
+display:flex;
+gap:15px;
+padding:20px;
+overflow-x:auto;
+z-index:1;
+position:relative
+}
 
-.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2}
-.modal-content{background:#1b1b1b;border-radius:20px;padding:20px;width:80%;max-width:900px;position:relative;animation:fade .3s}
-@keyframes fade{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.gallery img{
+width:300px;
+height:300px;
+border-radius:20px;
+object-fit:cover;
+cursor:pointer;
+transition:.3s
+}
 
-.close{position:absolute;top:15px;right:15px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#333;border-radius:12px;cursor:pointer;font-size:18px}
-.link-btn{position:absolute;right:15px;width:44px;height:44px;background:#333;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.link-btn img{width:26px;height:26px;border-radius:6px}
+.gallery img:hover{
+transform:scale(1.05)
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:2
+}
+
+.modal-content{
+background:#1b1b1b;
+border-radius:20px;
+padding:20px;
+width:80%;
+max-width:900px;
+position:relative;
+animation:fade .3s
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.95)}
+to{opacity:1;transform:scale(1)}
+}
+
+.close{
+position:absolute;
+top:15px;
+right:15px;
+width:44px;
+height:44px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#333;
+border-radius:12px;
+cursor:pointer;
+font-size:18px
+}
+
+.link-btn{
+position:absolute;
+right:15px;
+width:44px;
+height:44px;
+background:#333;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer
+}
+
+.link-btn img{
+width:26px;
+height:26px;
+border-radius:6px
+}
+
 #link1{top:70px}
 #link2{top:125px}
 
 .top-section{display:flex;gap:20px}
-.top-section img{width:150px;height:150px;border-radius:20px;object-fit:cover}
+
+.top-section img{
+width:150px;
+height:150px;
+border-radius:20px;
+object-fit:cover
+}
 
 .stats{margin-top:10px}
 
-.inventory-box{margin-top:20px;background:#222;padding:15px;border-radius:20px}
-.glow-title{text-align:center;font-weight:bold;margin-bottom:10px}
+.inventory-box{
+margin-top:20px;
+background:#222;
+padding:15px;
+border-radius:20px
+}
 
-.bottom-carousel{display:flex;gap:10px;overflow-x:auto}
-.bottom-carousel img{width:100px;height:100px;border-radius:15px}
+.glow-title{
+text-align:center;
+font-weight:bold;
+margin-bottom:10px
+}
+
+.bottom-carousel{
+display:flex;
+gap:10px;
+overflow-x:auto
+}
+
+.bottom-carousel img{
+width:100px;
+height:100px;
+border-radius:15px
+}
 </style>
 </head>
 <body>
@@ -132,11 +251,11 @@ box-shadow:
 <div class="hero">
 <img class="main" data-src="Other%20Images/led2d.github.io.png">
 <div class="bottom-images">
-<img data-src="Other%20Images/discord.png">
-<img data-src="Other%20Images/roblox.png">
-<img data-src="Other%20Images/reddit.png">
-<img data-src="Other%20Images/github.png">
-<img data-src="Other%20Images/gmail.png">
+<a href="https://discord.com" target="_blank"><img data-src="Other%20Images/discord.png"></a>
+<a href="https://roblox.com" target="_blank"><img data-src="Other%20Images/roblox.png"></a>
+<a href="https://reddit.com" target="_blank"><img data-src="Other%20Images/reddit.png"></a>
+<a href="https://github.com" target="_blank"><img data-src="Other%20Images/github.png"></a>
+<a href="https://mail.google.com" target="_blank"><img data-src="Other%20Images/gmail.png"></a>
 </div>
 </div>
 
@@ -152,8 +271,6 @@ box-shadow:
 
 <div class="gallery">
 <img data-index="0" data-src="Images/KaDiGFX.png">
-<img data-index="1" data-src="Images/v2u2GFX.png">
-<img data-index="2" data-src="Images/jryfGFX.png">
 </div>
 
 <div class="modal" id="modal">
@@ -180,9 +297,7 @@ box-shadow:
 </div>
 
 <script>
-const TEST_MODE=false
-const TEST_IMAGE="https://t4.ftcdn.net/jpg/02/64/15/41/360_F_264154131_XvpBI5fARjB7Qlo4PMrMMTaunXha47NR.jpg"
-const img=(src)=>TEST_MODE?TEST_IMAGE:src
+const img=(src)=>src
 
 document.querySelectorAll("img").forEach(el=>{
 if(el.dataset.src){el.src=img(el.dataset.src)}
@@ -213,7 +328,17 @@ snowContainer.appendChild(s)
 }
 
 const data=[
-{title:"KaDi",desc:"@KaDi",stats:"Visits: 6 | Followers: 28 | RAP (limiteds): 453",image:"https://tr.rbxcdn.com/30DAY-Avatar-1FC641EA2720399298B988806F2586E2-Png/720/720/Avatar/Webp/noFilter",inventory:["https://tr.rbxcdn.com/180DAY-6d0b82f1673af00bfd2b2f6fcae708b9/420/420/Hat/Webp/noFilter","inv2.jpg"],link1:"#",icon1:"https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/image-removebg-preview%20(1).png",link2:"#",icon2:"https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/image-removebg-preview.png"},
+{
+title:"KaDi",
+desc:"@KaDi",
+stats:"Visits: 6 | Followers: 28 | RAP (limiteds): 453",
+image:"https://tr.rbxcdn.com/30DAY-Avatar-1FC641EA2720399298B988806F2586E2-Png/720/720/Avatar/Webp/noFilter",
+inventory:["https://tr.rbxcdn.com/180DAY-6d0b82f1673af00bfd2b2f6fcae708b9/420/420/Hat/Webp/noFilter"],
+link1:"https://www.roblox.com/users/312460/profile",
+icon1:"Other%20Images/roblox.png",
+link2:"https://www.roblox.com/users/312460/inventory#!/accessories",
+icon2:"Other%20Images/discord.png"
+}
 ]
 
 document.querySelectorAll(".gallery img").forEach(el=>{
