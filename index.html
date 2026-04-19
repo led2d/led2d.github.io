@@ -1,1 +1,253 @@
-<!bla blaaaa bla ill type type type in a bit bt bit :P>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>led2d</title>
+<style>
+body{
+margin:0;
+font-family:Arial;
+color:#fff;
+background:url("https://w0.peakpx.com/wallpaper/153/138/HD-wallpaper-dark-night-nature.jpg") no-repeat top center;
+background-size:cover;
+overflow-x:hidden
+}
+
+img{display:block}
+
+.snow{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:0;
+overflow:hidden
+}
+
+.snow span{
+position:absolute;
+top:-10px;
+background:white;
+border-radius:50%;
+opacity:.85;
+animation:fall linear infinite
+}
+
+@keyframes fall{
+0%{transform:translateY(-10px)}
+100%{transform:translateY(110vh)}
+}
+
+.hero{position:relative;max-width:500px;margin:20px auto;z-index:1}
+.hero img.main{width:100%;border-radius:20px}
+.bottom-images{display:flex;gap:10px;position:absolute;bottom:-40px;left:20px}
+.bottom-images img{width:80px;height:80px;border-radius:20px;border:3px solid #111}
+
+.carousel-wrapper{
+width:100%;
+margin:80px 0 40px;
+padding:20px 0;
+overflow:hidden;
+position:relative;
+z-index:1;
+background:transparent
+}
+
+.carousel-wrapper::before,
+.carousel-wrapper::after{
+content:"";
+position:absolute;
+left:0;
+width:100%;
+height:25px;
+pointer-events:none;
+z-index:2
+}
+
+.carousel-wrapper::before{
+top:0;
+background:linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)
+}
+
+.carousel-wrapper::after{
+bottom:0;
+background:linear-gradient(to top, rgba(0,0,0,0.6), transparent)
+}
+
+.carousel-track{display:flex;gap:20px}
+.carousel-track img{
+height:400px;
+width:auto;
+border-radius:20px;
+object-fit:cover;
+flex-shrink:0;
+box-shadow:
+0 0 15px rgba(255,255,255,0.15),
+0 0 30px rgba(100,150,255,0.2),
+0 0 60px rgba(255,100,200,0.15);
+transition:.3s
+}
+
+.carousel-track img:hover{
+transform:scale(1.05);
+box-shadow:
+0 0 25px rgba(255,255,255,0.3),
+0 0 50px rgba(100,150,255,0.4),
+0 0 80px rgba(255,100,200,0.3)
+}
+
+.gallery{display:flex;gap:15px;padding:20px;overflow-x:auto;z-index:1;position:relative}
+.gallery img{width:300px;height:300px;border-radius:20px;object-fit:cover;cursor:pointer;transition:.3s}
+.gallery img:hover{transform:scale(1.05)}
+
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:2}
+.modal-content{background:#1b1b1b;border-radius:20px;padding:20px;width:80%;max-width:900px;position:relative;animation:fade .3s}
+@keyframes fade{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+
+.close{position:absolute;top:15px;right:15px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:#333;border-radius:12px;cursor:pointer;font-size:18px}
+.link-btn{position:absolute;right:15px;width:44px;height:44px;background:#333;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.link-btn img{width:26px;height:26px;border-radius:6px}
+#link1{top:70px}
+#link2{top:125px}
+
+.top-section{display:flex;gap:20px}
+.top-section img{width:150px;height:150px;border-radius:20px;object-fit:cover}
+
+.stats{margin-top:10px}
+
+.inventory-box{margin-top:20px;background:#222;padding:15px;border-radius:20px}
+.glow-title{text-align:center;font-weight:bold;margin-bottom:10px}
+
+.bottom-carousel{display:flex;gap:10px;overflow-x:auto}
+.bottom-carousel img{width:100px;height:100px;border-radius:15px}
+</style>
+</head>
+<body>
+
+<div class="snow" id="snow"></div>
+
+<div class="hero">
+<img class="main" data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot_2026-04-19_053221-removebg-preview.png">
+<div class="bottom-images">
+<img data-src="Other%20Images/dicsord.png">
+<img data-src="https://m.media-amazon.com/images/I/21aoUPG3svL.png">
+<img data-src="https://store-images.s-microsoft.com/image/apps.15970.14375561300249796.05fe8c27-ce9e-4144-8702-0e81e2f575b1.042364cb-b745-4796-a520-61291e2dd6b9">
+<img data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot%202026-04-19%20053746.png">
+<img data-src="https://static.vecteezy.com/system/resources/previews/022/484/516/non_2x/google-mail-gmail-icon-logo-symbol-free-png.png">
+</div>
+</div>
+
+<div class="carousel-wrapper">
+<div class="carousel-track" id="track">
+<img data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot%202026-04-19%20030531.png">
+<img data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot%202026-04-19%20031715.png">
+<img data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot%202026-04-19%20031304.png">
+<img data-src="img4.jpg">
+<img data-src="img5.jpg">
+</div>
+</div>
+
+<div class="gallery">
+<img data-index="0" data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot%202026-04-19%20071055.png">
+<img data-index="1" data-src="https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/Screenshot%202026-04-19%20072352.png">
+<img data-index="2" data-src="img3.jpg">
+</div>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<div class="close" onclick="closeModal()">✕</div>
+<a id="link1" class="link-btn" href="#" target="_blank"><img id="icon1"></a>
+<a id="link2" class="link-btn" href="#" target="_blank"><img id="icon2"></a>
+
+<div class="top-section">
+<img id="modalImage">
+<div>
+<h2 id="title"></h2>
+<p id="desc"></p>
+<div class="stats" id="stats"></div>
+</div>
+</div>
+
+<div class="inventory-box">
+<div class="glow-title">Some notable items</div>
+<div class="bottom-carousel" id="inventory"></div>
+</div>
+
+</div>
+</div>
+
+<script>
+const TEST_MODE=false
+const TEST_IMAGE="https://t4.ftcdn.net/jpg/02/64/15/41/360_F_264154131_XvpBI5fARjB7Qlo4PMrMMTaunXha47NR.jpg"
+const img=(src)=>TEST_MODE?TEST_IMAGE:src
+
+document.querySelectorAll("img").forEach(el=>{
+if(el.dataset.src){el.src=img(el.dataset.src)}
+})
+
+const track=document.getElementById("track")
+track.innerHTML+=track.innerHTML
+
+let scroll=0
+function loop(){
+scroll+=0.3
+if(scroll>=track.scrollWidth/2){scroll=0}
+track.style.transform=`translateX(-${scroll}px)`
+requestAnimationFrame(loop)
+}
+loop()
+
+const snowContainer=document.getElementById("snow")
+for(let i=0;i<160;i++){
+const s=document.createElement("span")
+const size=Math.random()*6+2
+s.style.width=size+"px"
+s.style.height=size+"px"
+s.style.left=Math.random()*100+"%"
+s.style.animationDuration=(Math.random()*6+4)+"s"
+s.style.opacity=Math.random()
+snowContainer.appendChild(s)
+}
+
+const data=[
+{title:"KaDi",desc:"@KaDi",stats:"Visits: 6 | Followers: 28 | RAP (limiteds): 453",image:"https://tr.rbxcdn.com/30DAY-Avatar-1FC641EA2720399298B988806F2586E2-Png/720/720/Avatar/Webp/noFilter",inventory:["https://tr.rbxcdn.com/180DAY-6d0b82f1673af00bfd2b2f6fcae708b9/420/420/Hat/Webp/noFilter","inv2.jpg"],link1:"#",icon1:"https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/image-removebg-preview%20(1).png",link2:"#",icon2:"https://uploads.onecompiler.io/447jvgcb8/44ksm3nwq/image-removebg-preview.png"},
+{title:"Item Two",desc:"Second description",stats:"Visits: 200 | Followers: 80",image:"img2.jpg",inventory:["inv3.jpg","inv4.jpg"],link1:"#",icon1:"icon3.png",link2:"#",icon2:"icon4.png"},
+{title:"Item Three",desc:"Third description",stats:"Visits: 300 | Followers: 120",image:"img3.jpg",inventory:["inv5.jpg","inv6.jpg"],link1:"#",icon1:"icon5.png",link2:"#",icon2:"icon6.png"}
+]
+
+document.querySelectorAll(".gallery img").forEach(el=>{
+el.onclick=()=>openModal(el.dataset.index)
+})
+
+function openModal(i){
+const item=data[i]
+document.getElementById("modal").style.display="flex"
+document.getElementById("modalImage").src=img(item.image)
+document.getElementById("title").textContent=item.title
+document.getElementById("desc").textContent=item.desc
+document.getElementById("stats").textContent=item.stats
+
+document.getElementById("link1").href=item.link1
+document.getElementById("icon1").src=img(item.icon1)
+document.getElementById("link2").href=item.link2
+document.getElementById("icon2").src=img(item.icon2)
+
+const inv=document.getElementById("inventory")
+inv.innerHTML=""
+item.inventory.forEach(s=>{
+const im=document.createElement("img")
+im.src=img(s)
+inv.appendChild(im)
+})
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none"
+}
+</script>
+
+</body>
+</html>
